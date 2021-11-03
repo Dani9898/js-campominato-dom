@@ -90,14 +90,9 @@ for (let i = 0; i < indiceCelle; i++) {
             alert(`HAI TOTALIZZATO ${celleAttive.length - 1} PUNTI`);
         }
          
-        if (document.getElementsByClassName("active").length === (indiceCelle - bombs.length)) {
+        if (celleAttive.length === (indiceCelle - bombs.length)) {
             alert("HAI VINTO");
         }
-
-
-
-
-        console.log(contatoreCelleCliccate);
     }
     );
 
