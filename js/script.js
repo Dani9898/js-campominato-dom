@@ -79,7 +79,7 @@ for (let i = 0; i < indiceCelle; i++) {
         let celleAttive = document.getElementsByClassName("active");
 
         this.classList.add("active");
-
+        testo[i].style.visibility = "visible";
         if (bombs.includes(numeroCella)) {
             for (let i = 0; i < bombs.length; i++) {
                 document.getElementById(bombs[i]).classList.add("bomb");  
