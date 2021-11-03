@@ -67,25 +67,42 @@ while (bombs.length < 16) {
     }   
 }
 
+console.log(bombs);
 
 for (let i = 0; i < indiceCelle; i++) {
 
-    elementoGen("div", "square", "span", "non-visibile").addEventListener("click",
-        function() {
-            this.classList.add("active");
-            let numeroCopia = bombs.includes(i);
-            if (numeroCopia == true) {
-                for (let i = 0; i < bombs.length; i++) {
-                    this.classList.add("bomb");
-                }
-                for (let i = 0; i < indiceCelle; i++) {
-                    document.getElementsByClassName("non-visibile")[i].style.visibility = "visible";
-                }
-            }
+    let creaElemento = elementoGen("div", "square", "span", "non-visibile");
+    creaElemento.setAttribute("id", i+1);
+    
+    creaElemento.addEventListener("click", function() {
+        let numeroCella = parseInt(creaElemento.id);
+        let celleAttive = document.getElementsByClassName("active");
+
+        this.classList.add("active");
+
+        if (bombs.includes(numeroCella)) {
+            for (let i = 0; i < bombs.length; i++) {
+                document.getElementById(bombs[i]).classList.add("bomb");  
+            }  
+            for (let i = 0 ; i < indiceCelle; i++) {
+                testo[i].style.visibility = "visible";
+            }    
+            alert(`HAI TOTALIZZATO ${celleAttive.length - 1} PUNTI`);
         }
+         
+        if (document.getElementsByClassName("active").length === (indiceCelle - bombs.length)) {
+            alert("HAI VINTO");
+        }
+
+
+
+
+        console.log(contatoreCelleCliccate);
+    }
     );
-    let testo = document.getElementsByClassName("non-visibile")[i];
-    testo.innerHTML = `${i+1}`;  
+
+    let testo = document.getElementsByClassName("non-visibile");
+    testo[i].innerHTML = `${i+1}`;  
 }
 
 
@@ -100,7 +117,3 @@ for (let i = 0; i < indiceCelle; i++) {
 }
 
 
-
-//  selezionare tutti i div che hanno testo = ad un valore che c'è dentro bombs. Confrontare tutti i numeri con l'array se corrisponde allora quello farlo diventare bomb.
-// document.getElementsByClassName("square")[i].innerHTML === bombs.includes(i)
-// }
