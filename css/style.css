@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:rgb(4, 4, 102);
+}
+
+#grid {
+    height: 100px;
+    width: 700px;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: calc(100% / 10);
+    height: 60px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    background-color: dodgerblue;
+}
+
+.non-visibile {
+    visibility: hidden;
+}
+
+.bomb {
+    background-color: red;
+    z-index: 9999;
+}
